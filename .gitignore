@@ -1,0 +1,23 @@
+# PHP Storm
+.idea
+
+# Windows crap
+.DS_Store
+
+# SVN folders
+.svn
+
+# Windows thumps crap
+Thumbs.db
+
+# Overige zaken
+.idea
+.buildpath
+.project
+.cache
+.settings
+translate.sh
+nbproject
+
+# gitflow
+git-flow
