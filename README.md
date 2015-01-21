@@ -5,4 +5,4 @@ Er bestaan genoeg PHP frameworks, en er bestaan genoeg goed geoptimaliseerde PHP
 
 -- Install
 
-uitpakken en ga naar http://<uri>/application/default/index.php
+uitpakken en ga naar http://[uri]/application/default/index.php
