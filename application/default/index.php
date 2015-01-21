@@ -8,6 +8,8 @@ include_once('../../paths.php');
 //Je current pad definieren, deze kan later worden opgehaald met path('app')
 set_path('app', path('application') . 'default' . DS);
 
+set_path('presentation', path('application') . 'default' . DS . 'presentation' . DS . 'default' . DS);
+
 //Environment variabelen laden
 include_once(path('base') . 'env.php');
 
@@ -16,7 +18,9 @@ include_once(path('application') . 'global.php');
 
 //Aangeven waar onze controllers staan
 Autoloader::directories(array(
-    path('app') . "controllers" . DS
+    path('app') . "controllers" . DS,
+    path('app') . "view" . DS,
+    path('app') . "model" . DS
 ));
 
 //Routes inladen

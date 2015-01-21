@@ -11,7 +11,7 @@ class RouterCollection
 {
 
     private static $routes = array();
-    private static $methods = array('GET');
+    private static $methods = array('GET', 'POST');
 
     private static $settings = array();
 
@@ -69,6 +69,7 @@ class RouterCollection
      */
     protected static function match($method, $url)
     {
+
         foreach(static::method($method) as $route => $action) {
 
             $pattern = '#^'.static::wildcards($route).'$#';

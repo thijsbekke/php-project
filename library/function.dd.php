@@ -78,8 +78,8 @@ function dba($object, $arg = '')
  */
 function dd($object, $arg = '')
 {
-    $trace = debug_backtrace();
-    dba($trace[0]);
+//    $trace = debug_backtrace();
+//    dba($trace[0]);
     dba($object, $arg);
     die();
 }

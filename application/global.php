@@ -5,7 +5,6 @@ require_once(path('library') . "function.dd.php");
 
 //Overrulen we de auto load functie, ies sneller
 //Autoloader::map(array("Auth", path('library') . "class.Auth.php"));
-//Autoloader::map(array("Template", path('library') . "Template.php"));
 //Autoloader::map(array("Translate", path('library') . "class.Translate.php"));
 
 

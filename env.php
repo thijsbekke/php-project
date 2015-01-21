@@ -15,8 +15,9 @@ require_once(path('library') . "Autoloader.php");
 
 Autoloader::directories(array(
     path('library'),
-    path('library') . "Adapter" . DS,
-    path('library') . "Object" . DS
+    path('library') . "Router" . DS,
+    path('library') . "Rest" . DS,
+    path('library') . "Orm" . DS,
 ));
 
 Autoloader::namespaces(array(

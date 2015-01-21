@@ -43,7 +43,7 @@ class RestController implements IController
             new Method("get", $route . '(:num)/delete', function ($data) use ($object) {
                 return $object->delete($data);
             }),
-            new Method("get", $route . 'create', function ($data) use ($object) {
+            new Method("post", $route . 'create', function ($data) use ($object) {
                 return $object->create($data);
             }),
         ];

@@ -18,7 +18,7 @@ Router\Route::get('\/admin\/(.*)', array('before' => 'auth', function () {
 }));
 
 //Voeg een Reset controller toe, hier worden automatisch de routes voor aangemaakt
-Router\Route::controller('/user/', new \Rest\RestController(new User()));
+Router\Route::controller('/user/', new \Rest\RestController(new UserController()));
 
 //Filter die gebruikt worden bij de /admin/ route
 Router\Route::filter('auth', function () {
@@ -27,6 +27,20 @@ Router\Route::filter('auth', function () {
 
 //Default pad
 Router\Route::get('/', function () {
-    die('Root');
-//   return View::make('base');
+
+//    return \Content\View::make('users');
+    //één van de twee werkt
+    return \Content\View::make('UsersView');
 });
+
+Router\Route::get('/add/', function () {
+
+    $controller = new UserController();
+    $controller->create();
+
+//    return \Content\View::make('users');
+    //één van de twee werkt
+    return \Content\View::make('UsersView');
+});
+
+
