@@ -2,6 +2,10 @@
 
 namespace Router;
 
+/**
+ * Class Response
+ * @package Router
+ */
 class Response {
     private $content;
     protected $version;

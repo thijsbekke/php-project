@@ -7,12 +7,9 @@ use Exception;
 class PrettyPageHandler extends Handler
 {
 
-
-    public function __construct()
-    {
-
-    }
-
+    /**
+     * @return int
+     */
     public function handle()
     {
 

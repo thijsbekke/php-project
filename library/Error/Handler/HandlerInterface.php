@@ -1,15 +1,25 @@
 <?php
 
-
 namespace Error\Handler;
 
 use Exception;
 
-interface HandlerInterface {
+/**
+ * Interface HandlerInterface
+ * @package Error\Handler
+ */
+interface HandlerInterface
+{
 
-
+    /**
+     * @return mixed
+     */
     public function handle();
 
+    /**
+     * @param Exception $exception
+     * @return mixed
+     */
     public function setException(Exception $exception);
 
 }

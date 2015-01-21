@@ -1,6 +1,5 @@
 <?php
 
-ob_start();
 
 /*
 Laat alle errors zien
@@ -24,5 +23,6 @@ Autoloader::namespaces(array(
     'filesystem'    => path('library')
 ));
 
+//Registreer je autoloader
 spl_autoload_register(array('Autoloader', 'load'));
 

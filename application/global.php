@@ -11,7 +11,6 @@ require_once(path('library') . "function.dd.php");
 
 $run = new Error\Run;
 
-
 //$handler = new Error\Handler\JsonHandler;
 //$run->pushHandler($handler);
 

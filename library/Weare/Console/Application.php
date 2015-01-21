@@ -3,6 +3,10 @@
 
 namespace Weare\Console;
 
+/**
+ * Class Application
+ * @package Weare\Console
+ */
 class Application
 {
     public static function start()

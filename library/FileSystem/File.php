@@ -118,7 +118,7 @@ class File
             return false;
         }
         //Misschien is de map niet writeable
-        if(!is_writable(self::parent($file))) {
+        if (!is_writable(self::parent($file))) {
             return false;
         }
 
@@ -193,7 +193,8 @@ class File
      * Chmod een bestand
      * @param $file
      */
-    public static function makeWriteable($file) {
+    public static function makeWriteable($file)
+    {
         wchmod($file, 0777);
     }
 
@@ -220,18 +221,26 @@ class File
         return pathinfo($file, PATHINFO_DIRNAME);
     }
 
-
+    /**
+     * Return de contents van een file
+     * @param $file
+     * @return bool|string
+     */
     public static function getContents($file)
     {
         return (static::exists($file) ? file_get_contents($file) : false);
     }
 
+    /**
+     * Wanneer is die voor het laatst gewijzigd
+     * @param $file
+     * @return bool|\DateTime
+     */
     public static function modified($file)
     {
-        if(!static::exists($file))
-        {
+        if (!static::exists($file)) {
             return false;
         }
-        return new \DateTime('@'.filemtime($file));
+        return new \DateTime('@' . filemtime($file));
     }
 }

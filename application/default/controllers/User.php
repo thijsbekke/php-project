@@ -1,14 +1,26 @@
 <?php
 
-//Dit is mijn controller die iets moet gaan doen.
-class User implements \Router\IController
+/**
+ * Class User
+ */
+class User implements \Rest\IRest
 {
 
-    public function __construct() { }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+    }
 
+    /**
+     * Wordt uitgevoerd wanneer Rest controller word aangeroepen zonder argumenten
+     * @example /route/
+     * @return mixed
+     */
     public function index()
     {
-        die('index');
+        die('user index');
         //View assign allemaal variabelen
         //$controller->index()
         //
@@ -21,22 +33,43 @@ class User implements \Router\IController
         // view die de template tjak inlaad die je wilt hebben
         return $view;
     }
+
+    /**
+     * Wordt aangroepen wanneer Rest controller wordt aangeroepen met 1 argument
+     * @example /route/(:num)
+     * @param (:num) $id
+     */
     public function show($id)
     {
         die('show' . print_r($id, 1));
     }
 
+    /**
+     * Wordt aangroepen wanneer Rest controller wordt aangeroepen met 1 argument en edit
+     * @example /route/(:num)/edit
+     * @param $id
+     */
     public function edit($id)
     {
         die('edit' . print_r($id, 1));
     }
 
+    /**
+     * Wordt aangroepen wanneer Rest controller wordt aangeroepen met het create argument
+     * @example /route/create
+     */
     public function create()
     {
         die('create');
     }
 
-    public function delete($id) {
+    /**
+     * Wordt aangroepen wanneer Rest controller wordt aangeroepen met het delete argument
+     * @example /route/(:num)/delete
+     * @param $id
+     */
+    public function delete($id)
+    {
         die('delete' . print_r($id, 1));
     }
 }

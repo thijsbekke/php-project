@@ -10,26 +10,36 @@ class Request
     protected static $base;
     protected static $server;
 
-
+    /**
+     * Return the request method
+     * @return mixed
+     */
     public static function method()
     {
         return static::server()->get('REQUEST_METHOD');
     }
 
+    /**
+     * Return het huidige pad
+     * @return string
+     */
     public static function pathInfo()
     {
 
-        if(($pathinfo = static::server()->get('PATH_INFO', '')) == '')
-        {
+        if (($pathinfo = static::server()->get('PATH_INFO', '')) == '') {
 
             return '/';
         }
         return $pathinfo;
     }
 
+    /**
+     * Return huidige url
+     * @return string
+     */
     public static function current()
     {
-        if(!is_null(static::$uri)) return static::$uri;
+        if (!is_null(static::$uri)) return static::$uri;
 
         $uri = static::pathInfo();
 
@@ -44,9 +54,12 @@ class Request
      */
     protected static function segments($uri)
     {
-        if(!($pathinfo = static::server()->get('PATH_INFO'))) { static::$segments = array();  return; }
+        if (!($pathinfo = static::server()->get('PATH_INFO'))) {
+            static::$segments = array();
+            return;
+        }
 
-        $parts = explode ('/', strtolower(trim($pathinfo, '/')));
+        $parts = explode('/', strtolower(trim($pathinfo, '/')));
         static::$segments = array_diff($parts, array(''));
     }
 
@@ -58,17 +71,20 @@ class Request
      */
     public static function segment($index, $segments = array())
     {
-        if(empty($segments)) static::current() and $segments = static::$segments;
+        if (empty($segments)) static::current() and $segments = static::$segments;
 
-        if(isset($segments[$index])) return $segments[$index];
+        if (isset($segments[$index])) return $segments[$index];
 
         return null;
     }
 
+    /**
+     * Return een server object
+     * @return mixed
+     */
     protected static function server()
     {
-        if(is_null(static::$server))
-        {
+        if (is_null(static::$server)) {
             static::$server = new Server();
         }
         return static::$server;
@@ -106,18 +122,26 @@ class Request
         return $_SERVER["SERVER_PORT"];
     }
 
+    /**
+     * Is het http of https
+     * @return mixed|string
+     */
     public static function httpHost()
     {
         $scheme = static::scheme();
-        $port   = static::port();
+        $port = static::port();
 
         if (('http' == $scheme && $port == 80) || ('https' == $scheme && $port == 443)) {
             return static::host();
         }
 
-        return static::host().':'.$port;
+        return static::host() . ':' . $port;
     }
 
+    /**
+     * Wat is je relatieve pad
+     * @return string
+     */
     protected static function calculateBasePath()
     {
         $scriptName = static::server()->get('SCRIPT_NAME');
@@ -125,6 +149,10 @@ class Request
         return substr($scriptName, 0, strrpos($scriptName, '/')) . '/';
     }
 
+    /**
+     * Wat is je basis pad
+     * @return mixed
+     */
     public static function basePath()
     {
         if (static::$base === null) {
@@ -133,9 +161,13 @@ class Request
         return static::$base;
     }
 
+    /**
+     * Root url van je request
+     * @return string
+     */
     public static function rootUrl()
     {
-        return static::scheme().'://'.static::httpHost().static::basePath();
+        return static::scheme() . '://' . static::httpHost() . static::basePath();
     }
 
 }

@@ -2,6 +2,11 @@
 
 namespace Router;
 
+/**
+ * Een collectie van allemaal routeringen
+ * Class RouterCollection
+ * @package Router
+ */
 class RouterCollection
 {
 
@@ -18,6 +23,11 @@ class RouterCollection
 
     public static function route($method, $url)
     {
+
+//        if($url != "/" && substr($url, -1) == "/") {
+//            $url = substr($url, 0, -1);
+//        }
+
         //Dit is een match op basis van regex:/
         if(!is_null(($route = static::match($method, $url))))
         {

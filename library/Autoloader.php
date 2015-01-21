@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class Autoloader
+ */
 class Autoloader
 {
 
@@ -8,6 +11,11 @@ class Autoloader
     protected static $aliasArray = array();
     protected static $mapArray = array();
 
+    /**
+     * Laad een class
+     * @param $class
+     * @return bool|mixed
+     */
     public static function load($class)
     {
         //Laad de class die word gevraagd 

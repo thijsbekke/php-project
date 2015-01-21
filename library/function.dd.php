@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Return een object in een formaat leesbaar voor mensen
+ * @param $object
+ * @param $arg
+ * @return mixed
+ */
 function dbaObject($object, $arg)
 {
     if(empty($arg))
@@ -9,6 +15,12 @@ function dbaObject($object, $arg)
     return $object->$arg;
 }
 
+/**
+ * Return een array in een formaat leesbaar voor mensen
+ * @param $array
+ * @param $arg
+ * @return array
+ */
 function dbaArray($array, $arg)
 {
 
@@ -32,6 +44,11 @@ function dbaArray($array, $arg)
     return $return;
 }
 
+/**
+ * Return een variabel in een formaat leesbaar voor mensen
+ * @param $object
+ * @param string $arg
+ */
 function dba($object, $arg = '')
 {
     $return = $object;
@@ -54,6 +71,11 @@ function dba($object, $arg = '')
     echo highlight_string("<?php \n" . var_export($return, true) . "\n?>", true);
 }
 
+/**
+ * Alias voor dba met een debug trace om je dd() weer op te zoeken
+ * @param $object
+ * @param string $arg
+ */
 function dd($object, $arg = '')
 {
     $trace = debug_backtrace();
@@ -62,6 +84,10 @@ function dd($object, $arg = '')
     die();
 }
 
+/**
+ * List een variabel
+ * @param $object
+ */
 function pp($object)
 {
     echo "<li>" . print_r($object, 1) . "</li>";
